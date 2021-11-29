@@ -13,6 +13,7 @@ START_YEAR, START_MONTH, START_DAY, END_YEAR, END_MONTH, END_DAY, IDPW_LIST = re
 DATE_LIST = Make_Dates(START_YEAR, START_MONTH, START_DAY, END_YEAR, END_MONTH, END_DAY)
 
 for account in IDPW_LIST:
-    connect_webpage(driver, account[0], account[1])
-    CRAWLING_DATA = crawl_data(driver, account[0], DATE_LIST)
-    save_to_file(account[0], CRAWLING_DATA)
+    login = connect_webpage(driver, account[0], account[1])
+    if login:
+      CRAWLING_DATA = crawl_data(driver, account[0], DATE_LIST)
+      save_to_file(account[0], CRAWLING_DATA)

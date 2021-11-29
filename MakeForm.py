@@ -6,5 +6,7 @@ writer.writerow(["start_date(YYYYMMDD)", "20211013"])
 writer.writerow(["end_date(YYYYMMDD)", "20211013"])
 writer.writerow([""])
 writer.writerow(["1710023462", "power001"])
+writer.writerow(["1710008443", "er001"])
+writer.writerow(["1710028582", "power001"])
 
 file.close()

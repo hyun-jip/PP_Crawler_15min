@@ -2,6 +2,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.alert import Alert
 
 
 def connect_webpage(driver, PP_ID, PP_PW):
@@ -14,11 +15,18 @@ def connect_webpage(driver, PP_ID, PP_PW):
   input.send_keys(PP_PW)
   input.send_keys(Keys.RETURN)
 
+  try:
+    Alert(driver).accept()
+    print(f"고객번호 {PP_ID} 로그인 오류")
+    return False
 
-    
-  driver.get("https://pp.kepco.co.kr/rs/rs0101N.do?menu_id=O010201")
-  wait = WebDriverWait(driver, 10)
-  wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'loadingwrap')))
+  except:
+    driver.get("https://pp.kepco.co.kr/rs/rs0101N.do?menu_id=O010201")
+    wait = WebDriverWait(driver, 10)
+    wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'loadingwrap')))
+    return True
+
+  
   
 
 
