@@ -52,7 +52,7 @@ def crawl_data(driver, PP_ID, DATE_LIST):
                      if len(MINUTE) == 1:
                          MINUTE = "0" + MINUTE
                      TIME_FORMAT = TIME + MINUTE
-                     DATA_LIST.append({"PP_ID": PP_ID, "DATE": DATE_FORMAT , "TIME": TIME_FORMAT, "USAGE": value.find_elements_by_tag_name("td")[0].text})
+                     DATA_LIST.append({"PP_ID": str(PP_ID), "DATE": str(DATE_FORMAT) , "TIME": str(TIME_FORMAT), "USAGE": value.find_elements_by_tag_name("td")[0].text})
 
                  for index, value in enumerate(rows):
                      if(value.find_elements_by_tag_name("th")[1].text=="" or value.find_elements_by_tag_name("th")[1].text=="-"):
@@ -77,7 +77,7 @@ def crawl_data(driver, PP_ID, DATE_LIST):
                      if len(MINUTE) == 1:
                          MINUTE = "0" + MINUTE
                      TIME_FORMAT = TIME + MINUTE
-                     DATA_LIST.append({"PP_ID": PP_ID, "DATE": DATE_FORMAT , "TIME": TIME_FORMAT, "USAGE": value.find_elements_by_tag_name("td")[7].text})
+                     DATA_LIST.append({"PP_ID": str(PP_ID), "DATE": str(DATE_FORMAT) , "TIME": str(TIME_FORMAT), "USAGE": value.find_elements_by_tag_name("td")[7].text})
 
      ActionChains(driver).double_click(on_element=driver.find_element_by_xpath('//*[@id="gml"]/a[2]')).perform()
     
