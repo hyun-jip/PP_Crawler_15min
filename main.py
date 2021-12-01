@@ -22,6 +22,7 @@ if RESTART == "y":
       for index, value in enumerate(IDPW_LIST):
         if row1 == value[0]:
           del IDPW_LIST[index]
+          break
 
     for account in IDPW_LIST:
       login = connect_webpage(driver, account[0], account[1])
